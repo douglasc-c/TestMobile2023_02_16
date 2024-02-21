@@ -1,0 +1,32 @@
+export default {
+  colors: {
+    primary: '#000000',
+    secondary: '#fff',
+    red: '#E31B13',
+    error: '#E31B13',
+    shape: '#3B3B3B',
+    shapebtn: '#FFFFFF',
+    colorTitle: '#FFFFFF',
+    settings: '#00152A',
+    colorAporte: '#B1B1B1',
+    btn: '#3B82F6',
+    box: '#fff',
+    input: '#8F939F',
+    border: '#BABABA',
+    boxShadow: '#d3d3d3',
+    shapeCoin: '#3B3B3B',
+    textCoin: '#fff',
+  },
+
+  fonts: {
+    black: 'Inter-Black',
+    bold: 'Inter-Bold',
+    extraBold: 'Inter-ExtraBold',
+    extraLight: 'Inter-ExtraLight',
+    light: 'Inter-Light',
+    medium: 'Inter-Medium',
+    regular: 'Inter-Regular',
+    semiBold: 'Inter-Semibold',
+    thin: 'Inter-Thin',
+  },
+};
