@@ -1,7 +1,5 @@
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 import { Alert } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-// import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // import api from '../services/api';
 
@@ -47,19 +45,23 @@ function AuthProvider({ children }: AuthProviderProps) {
     setIsLogging(false);
   }
 
-
+  const fakeApiResponse: { data: { user: User } } = {
+    data: {
+      user: {
+        id: '1',
+        name: 'Usuário de Teste',
+        email: 'teste@example.com',
+      }
+    }
+  };
 
   async function signIn({ email, password }: SignInCredentials): Promise<void> {
     setIsLogging(true);
     try {
-      // const response = await api.post('auth/signin', {
-      //   email: email,
-      //   password: password,
-      // });
-      const credentials = { email: email, password: password };
-      // await AsyncStorage.setItem('@testeMobile', JSON.stringify(credentials));
-      // const { user } = response.data;
-      // setData(user);
+      
+      const { user } = fakeApiResponse.data;
+      
+      setData(user);
     } catch (error) {
       console.log(error);
       Alert.alert('Usuário ou senha incorreto');
