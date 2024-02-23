@@ -6,12 +6,11 @@ interface CircularProgressProps {
   size: number;
   strokeWidth: number;
   progress: number;
-  color: string;
 }
 
 const AnimatedCircle = Animated.createAnimatedComponent(Circle);
 
-const CircularProgress: React.FC<CircularProgressProps> = ({ size, strokeWidth, progress, color }) => {
+const CircularProgress: React.FC<CircularProgressProps> = ({ size, strokeWidth, progress }) => {
   const radius = (size - strokeWidth) / 2;
   const circumference = radius * 2 * Math.PI;
   const animatedValue = React.useRef(new Animated.Value(0)).current;
@@ -19,7 +18,7 @@ const CircularProgress: React.FC<CircularProgressProps> = ({ size, strokeWidth, 
   useEffect(() => {
     Animated.timing(animatedValue, {
       toValue: progress,
-      duration: 3000,
+      duration: 10000,
       easing: Easing.linear,
       useNativeDriver: true,
     }).start();
@@ -44,7 +43,7 @@ const CircularProgress: React.FC<CircularProgressProps> = ({ size, strokeWidth, 
         cx={size / 2}
         cy={size / 2}
         r={radius}
-        stroke={color}
+        stroke='#3B82F6'
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         fill="none"

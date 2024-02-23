@@ -11,7 +11,7 @@ import {
   ViewIcon,
   ContentIcon,
   Content,
-  ConteinerCard,
+  ContentLoading,
 } from './styles';
 
 import api from "../../services/api";
@@ -19,6 +19,9 @@ import api from "../../services/api";
 import { CardFilm } from "../../components/CardFilm";
 
 import SignOut from "../../assets/svg/signout.svg";
+import CircularProgress from "../../components/Loading/CircularProgress";
+import { useAuth } from "../../hooks/auth";
+import { set } from "react-hook-form";
 
 interface Film {
   director?: string;
@@ -30,12 +33,16 @@ interface Film {
 export function Home(){
   const [filmsList, setFilmsList] = useState<Film[]>([]);
   const navigation = useNavigation();
+  const {isLoading, setLoadingTrue, setLoadingFalse} = useAuth();
 
   useEffect(() => {
+    setLoadingTrue()
     function fetchFilms() {
+
       api.get('/films').then(response => {
         const {results} = response.data;
         setFilmsList(results); 
+        setLoadingFalse()
       });
     }
     fetchFilms();
@@ -56,15 +63,20 @@ export function Home(){
         </ViewIcon>
       </ContentHeader>
       <Content>
-        <FlatList
-          data={filmsList}
-          showsVerticalScrollIndicator={false}
-          keyExtractor={(item, index) => index.toString()}
-          renderItem={({ item, index }) => (
-              <CardFilm data={item} key={index} />
-            )}
-        />
-
+        {!isLoading ? (
+            <FlatList
+            data={filmsList}
+            showsVerticalScrollIndicator={false}
+            keyExtractor={(item, index) => index.toString()}
+            renderItem={({ item, index }) => (
+                <CardFilm data={item} key={index} />
+              )}
+          />
+          ) : (
+            <ContentLoading>
+              <CircularProgress size={100} strokeWidth={10} progress={1} />
+            </ContentLoading>
+          )} 
       </Content>
     </Container>
   )

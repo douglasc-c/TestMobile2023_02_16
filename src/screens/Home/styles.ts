@@ -23,10 +23,13 @@ export const Title = styled.Text`
 `;
 
 export const Content = styled.View`
+  flex:1;
   align-items: center;
+  justify-content: center;
   padding:${RFValue(20)}px 0;
 `;
-export const ConteinerCard = styled.FlatList``;
+
+export const ContentLoading = styled.View``;
 
 export const ViewIcon = styled.View`
   align-items: center;
