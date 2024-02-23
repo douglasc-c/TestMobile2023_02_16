@@ -25,10 +25,17 @@ export const Content = styled.View`
   align-items: center;
   padding:${RFValue(20)}px 0;
 `;
+export const ConteinerCard = styled.FlatList``;
 
-export const ContentFooter = styled.View`
+export const ViewIcon = styled.View`
   align-items: center;
-  padding:${RFValue(20)}px 0;
+  padding:${RFValue(20)};
+`;
+export const ContentIcon = styled.View`
+  align-items: center;
+  padding:${RFValue(10)}px;
+  background-color: ${({theme}) => theme.colors.primary};
+  border-radius: ${RFValue(10)}px;
 `;
 
 export const Description = styled.Text`
