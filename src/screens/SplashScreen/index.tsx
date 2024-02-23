@@ -54,7 +54,7 @@ export function SplashScreen(){
         <Title>Start Wars{'\n'}Movies</Title>
       </ContentHeader>
       <Content>
-        <CircularProgress size={100} strokeWidth={10} progress={5} color="#3B82F6" />
+        <CircularProgress size={100} strokeWidth={10} progress={5} />
         <Description>Carregando...</Description>
       </Content>
       <ContentFooter>

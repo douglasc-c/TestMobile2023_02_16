@@ -19,8 +19,8 @@ export const ContentText = styled.View`
   flex-direction: row;
   align-items:center
 `;
-export const View = styled.View`
-`;
+
+export const View = styled.View``;
 
 export const Title = styled.Text`
   font-size: ${RFValue(20)}px;
@@ -31,11 +31,11 @@ export const Title = styled.Text`
 export const Director = styled.Text`
   font-size: ${RFValue(14)}px;
   font-family: ${({theme}) => theme.fonts.bold};
-  color: ${({theme}) => theme.colors.director};
+  color: ${({theme}) => theme.colors.secondary};
 `;
 
 export const ContentDate = styled.Text`
-  font-size: ${RFValue(18)}px;
+  font-size: ${RFValue(20)}px;
   font-family: ${({theme}) => theme.fonts.bold};
   color: ${({theme}) => theme.colors.year};
 `;

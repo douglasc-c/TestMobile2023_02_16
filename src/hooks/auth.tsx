@@ -17,7 +17,7 @@ interface SignInCredentials {
 
 interface AuthContextData {
   user: User;
-  isLogging: boolean;
+  isLoading: boolean;
   signIn: (credentials: SignInCredentials) => Promise<void>;
   setLoadingTrue: () => void;
   setLoadingFalse: () => void;
@@ -32,17 +32,17 @@ const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 function AuthProvider({ children }: AuthProviderProps) {
   const [data, setData] = useState<User>({} as User);
-  const [isLogging, setIsLogging] = useState(false);
+  const [isLoading, setLoading] = useState(false);
   const [username, setUserName] = useState('');
   const [clean, setClean] = useState();
 
 
   function setLoadingTrue() {
-    setIsLogging(true);
+    setLoading(true);
   }
 
   function setLoadingFalse() {
-    setIsLogging(false);
+    setLoading(false);
   }
 
   const fakeApiResponse: { data: { user: User } } = {
@@ -56,7 +56,7 @@ function AuthProvider({ children }: AuthProviderProps) {
   };
 
   async function signIn({ email, password }: SignInCredentials): Promise<void> {
-    setIsLogging(true);
+    setLoading(true);
     try {
       
       const { user } = fakeApiResponse.data;
@@ -66,7 +66,7 @@ function AuthProvider({ children }: AuthProviderProps) {
       console.log(error);
       Alert.alert('Usuário ou senha incorreto');
     } finally {
-      setIsLogging(false);
+      setLoading(false);
     }
   }
 
@@ -79,7 +79,7 @@ function AuthProvider({ children }: AuthProviderProps) {
     <AuthContext.Provider
       value={{
         user: data,
-        isLogging: isLogging,
+        isLoading: isLoading,
         signIn: signIn,
         CleanUpStates,
         setLoadingTrue,
