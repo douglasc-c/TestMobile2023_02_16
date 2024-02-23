@@ -32,10 +32,11 @@ const schema = yup.object({
   email: yup.string().email('E-mail invalido').required('Informe seu email'),
   password: yup
     .string()
+    .min(5, ' senha deve conter no minimo 5 digitos')
     .required('Senha obrigatoria'),
 });
 
-export function SingIn() {
+export function SignIn() {
   const navigation = useNavigation();
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [isFocused, setIsFocused] = useState<'email' | 'password'>();
@@ -48,36 +49,6 @@ export function SingIn() {
     setLoadingFalse,
   } = useAuth();
 
-
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     try {
-  //       const value = await AsyncStorage.getItem('@testMobile');
-  //       if (value !== null) {
-  //         const userObject = JSON.parse(value);
-
-  //         LocalAuthentication.authenticateAsync({
-  //           reason: 'Please, authenticate!',
-  //         }).then(async (response) => {
-  //           console.log(response);
-  //           if (response?.success) {
-  //             const email = userObject.email;
-  //             const password = userObject.password;
-  //             setValue('email', email);
-  //             setValue('password', password);
-  //             signIn({ email, password });
-  //           } else {
-  //             await AsyncStorage.removeItem('@testMobile');
-  //           }
-  //         });
-  //       }
-  //     } catch (e) {
-  //       // error reading value
-  //     }
-  //   };
-  //   getData();
-  // }, []);
-
   const {
     control,
     handleSubmit,
@@ -89,9 +60,15 @@ export function SingIn() {
   function handleSignin(data: FormData) {
     const email = data.email;
     const password = data.password;
-
     signIn({ email, password });
   }
+
+  useEffect(() => {
+    if (user.id === '1') {
+      navigation.navigate('Home');
+      return;
+    }
+  }, [user]);
 
   return (
     <Container>
