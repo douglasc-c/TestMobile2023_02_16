@@ -32,7 +32,7 @@ export const Title = styled.Text`
 export const DescriptionInput = styled.Text`
   padding: ${RFValue(10)}px 0;
   font-family: ${({theme}) => theme.fonts.medium};
-  color: ${({theme}) => theme.colors.colorTitle};
+  color: ${({theme}) => theme.colors.secondary};
   font-size: ${RFIphone(14)}px;
 `;
 
