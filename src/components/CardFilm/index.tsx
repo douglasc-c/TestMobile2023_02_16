@@ -6,9 +6,11 @@ import { format } from 'date-fns';
 import {
   Container,
   Content,
+  View,
   ContentText,
   Title,
-  SubTitle,
+  Director,
+  ContentDate,
 } from './styles';
 
 interface Props {
@@ -32,7 +34,6 @@ export function CardFilm({ data }: FilmsProps) {
       setIsDataInfo(data);
   }, [data]);
 
-console.log(formattedDate)
   function handlePress() {
       // navigation.navigate('Details', { isDataInfo });
   }
@@ -40,10 +41,12 @@ console.log(formattedDate)
   return (
     <Container onPress={handlePress}>
       <Content>
-        <ContentText>
+        <View>
           <Title>{isDataInfo?.title}</Title>
-          <SubTitle>{formattedDate}</SubTitle>
-          <SubTitle>{isDataInfo?.opening_crawl}</SubTitle>
+        </View>
+        <ContentText>
+          <Director>{isDataInfo?.director}</Director>
+          <ContentDate>{formattedDate}</ContentDate>
         </ContentText>
       </Content>
     </Container>
