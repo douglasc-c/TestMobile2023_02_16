@@ -41,12 +41,16 @@ export function Home(){
     fetchFilms();
   }, []);
 
+  function handleGoBack() {
+    navigation.goBack();
+  }
+
   return (
     <Container>
       <ContentHeader>
         <Title>Start Wars{'\n'}Movies</Title>
         <ViewIcon>
-          <ContentIcon>
+          <ContentIcon onPress={() => handleGoBack()}>
             <SignOut width={30} height={30}/>
           </ContentIcon>
         </ViewIcon>
@@ -57,9 +61,10 @@ export function Home(){
           showsVerticalScrollIndicator={false}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({ item, index }) => (
-            <CardFilm data={item} key={index} />
-          )}
+              <CardFilm data={item} key={index} />
+            )}
         />
+
       </Content>
     </Container>
   )

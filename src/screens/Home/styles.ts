@@ -11,8 +11,9 @@ export const Container = styled.View`
 `;
 
 export const ContentHeader = styled.View`
-  padding: 0 ${RFValue(30)}px;
-  width: ${RFIphone(290)}px;
+  padding: 0 ${RFValue(15)}px;
+  flex-direction: row;
+  justify-content: space-between;
 `;
 
 export const Title = styled.Text`
@@ -29,11 +30,11 @@ export const ConteinerCard = styled.FlatList``;
 
 export const ViewIcon = styled.View`
   align-items: center;
-  padding:${RFValue(20)};
 `;
-export const ContentIcon = styled.View`
+
+export const ContentIcon = styled.TouchableOpacity`
   align-items: center;
-  padding:${RFValue(10)}px;
+  padding:${RFValue(8)}px;
   background-color: ${({theme}) => theme.colors.primary};
   border-radius: ${RFValue(10)}px;
 `;

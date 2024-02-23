@@ -3,31 +3,39 @@ import {RFValue} from 'react-native-responsive-fontsize';
 import {SvgProps} from 'react-native-svg';
 
 export const Container = styled.TouchableOpacity`
-  flex: 1;
-  padding: ${RFValue(10)}px ${RFValue(20)}px;
+  padding: ${RFValue(10)}px ${RFValue(20)}px ;
 `;
 
 export const Content = styled.View`
-  flex-direction: row;
-  padding: ${RFValue(20)}px;
+  padding: ${RFValue(15)}px;
+  border-radius: ${RFValue(10)}px;
   width: 100%;
+  background-color: ${({theme}) => theme.colors.primary};
 `;
 
 export const ContentText = styled.View`
-  flex: 1;
-  justify-content: space-evenly;
-  margin-left: ${RFValue(15)}px;
-  background-color: ${({theme}) => theme.colors.secondary};
+  justify-content: space-between;
+  width: 100%;
+  flex-direction: row;
+  align-items:center
+`;
+export const View = styled.View`
 `;
 
 export const Title = styled.Text`
-  font-size: ${RFValue(14)}px;
-  font-family: ${({theme}) => theme.fonts.extraBold};
-  color: red;
+  font-size: ${RFValue(20)}px;
+  font-family: ${({theme}) => theme.fonts.bold};
+  color: ${({theme}) => theme.colors.secondary};
 `;
 
-export const SubTitle = styled.Text`
-  font-size: ${RFValue(12)}px;
+export const Director = styled.Text`
+  font-size: ${RFValue(14)}px;
   font-family: ${({theme}) => theme.fonts.bold};
-  color: ${({theme}) => theme.colors.primary};
+  color: ${({theme}) => theme.colors.director};
+`;
+
+export const ContentDate = styled.Text`
+  font-size: ${RFValue(18)}px;
+  font-family: ${({theme}) => theme.fonts.bold};
+  color: ${({theme}) => theme.colors.year};
 `;
