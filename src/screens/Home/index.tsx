@@ -15,13 +15,12 @@ import {
 } from './styles';
 
 import api from "../../services/api";
+import { useAuth } from "../../hooks/auth";
 
 import { CardFilm } from "../../components/CardFilm";
+import CircularProgress from "../../components/Loading/CircularProgress";
 
 import SignOut from "../../assets/svg/signout.svg";
-import CircularProgress from "../../components/Loading/CircularProgress";
-import { useAuth } from "../../hooks/auth";
-import { set } from "react-hook-form";
 
 interface Film {
   director?: string;
